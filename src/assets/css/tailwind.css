@@ -11,7 +11,7 @@
 }
 
 .control {
-  @apply border border-c-gray-100 focus:border-c-gray-200 focus:outline-none font-thin text-lg text-c-gray-150 placeholder-c-gray-150 px-5 py-3;
+  @apply border border-c-gray-100 focus:outline-none focus:ring-0 focus:ring-c-gray-200 focus:border-c-gray-200 font-thin text-lg text-c-gray-150 placeholder-c-gray-150 px-5 py-3;
 }
 
 .form-control {
