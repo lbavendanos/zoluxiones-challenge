@@ -34,7 +34,7 @@ describe('Person hooks', () => {
   it('call usePerson', async () => {
     const axiosResponse = getAxiosResponse(mockResponse)
 
-    mockedAxios.post.mockResolvedValueOnce(axiosResponse)
+    mockedAxios.get.mockResolvedValueOnce(axiosResponse)
 
     const { result } = renderHook(() => usePerson())
 
@@ -46,7 +46,7 @@ describe('Person hooks', () => {
   it('call usePerson hook to get error', async () => {
     const axiosError = getAxiosError()
 
-    mockedAxios.post.mockRejectedValueOnce(axiosError)
+    mockedAxios.get.mockRejectedValueOnce(axiosError)
 
     const { result } = renderHook(() => usePerson())
 

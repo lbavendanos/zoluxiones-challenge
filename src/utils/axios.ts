@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
 const axiosRequestConfig: AxiosRequestConfig = {
-  baseURL: 'https://freestyle.getsandbox.com',
+  baseURL: 'https://randomuser.me',
 }
 
 const instance = createInstance(axiosRequestConfig)

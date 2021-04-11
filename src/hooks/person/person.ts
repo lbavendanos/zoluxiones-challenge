@@ -2,43 +2,87 @@ import { useEffect, useState } from 'react'
 import axios from '@/utils/axios'
 
 export interface Response {
-  tipo: string
-  mensaje: string
-  titulo: string
-  data: Data
+  results: Person[]
+  info: Info
 }
 
-export interface Data {
-  tercero: Person
-  error: Error
-  codigoResp: string
-  mensajeResp: string
-}
-
-export interface Error {
-  codigo: string
-  mensajedev: null
-  mensajeux: string
+export interface Info {
+  seed: string
+  results: number
+  page: number
+  version: string
 }
 
 export interface Person {
-  direccion: string
-  nomCompleto: string
-  indCrearTercero: string
-  estadoCivil: string
-  tipoPersona: string
-  telefono: string
-  apellidoPaterno: string
-  sexo: string
-  indRequiereDireccion: string
-  paisNacimiento: string
-  nombres: string
-  stsTercero: string
-  tipoDocumento: string
-  apellidoMaterno: string
-  numDocumento: string
-  fecNacimiento: string
-  correo: string
+  gender: string
+  name: Name
+  location: Location
+  email: string
+  login: Login
+  dob: Dob
+  registered: Dob
+  phone: string
+  cell: string
+  id: ID
+  picture: Picture
+  nat: string
+}
+
+export interface Dob {
+  date: Date
+  age: number
+}
+
+export interface ID {
+  name: string
+  value: string
+}
+
+export interface Location {
+  street: Street
+  city: string
+  state: string
+  country: string
+  postcode: number
+  coordinates: Coordinates
+  timezone: Timezone
+}
+
+export interface Coordinates {
+  latitude: string
+  longitude: string
+}
+
+export interface Street {
+  number: number
+  name: string
+}
+
+export interface Timezone {
+  offset: string
+  description: string
+}
+
+export interface Login {
+  uuid: string
+  username: string
+  password: string
+  salt: string
+  md5: string
+  sha1: string
+  sha256: string
+}
+
+export interface Name {
+  title: string
+  first: string
+  last: string
+}
+
+export interface Picture {
+  large: string
+  medium: string
+  thumbnail: string
 }
 
 export function usePerson() {
@@ -47,10 +91,10 @@ export function usePerson() {
 
   const fetchPerson = async () => {
     try {
-      const url = '/dummy/obtenerdatospersona'
-      const { data } = await axios.post<Response>(url)
+      const url = '/api'
+      const { data } = await axios.get<Response>(url)
 
-      setPerson(data.data.tercero)
+      setPerson(data.results[0])
     } catch (e) {
       setError(e)
     }
