@@ -28,7 +28,11 @@ module.exports = {
         100: '#43B748',
       },
     },
-    extend: {},
+    extend: {
+      backgroundImage: (theme) => ({
+        'hero-pattern': "url('./../images/background.svg')",
+      }),
+    },
   },
   variants: {
     extend: {},
