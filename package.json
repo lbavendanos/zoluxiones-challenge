@@ -22,10 +22,12 @@
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.0",
+    "@reduxjs/toolkit": "^1.5.1",
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.0.5",
+    "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
@@ -40,6 +42,7 @@
     "@types/node": "^12.20.7",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
     "autoprefixer": "^9.8.6",
     "craco-alias": "^2.2.0",

@@ -1,21 +1,31 @@
 import { useForm } from 'react-hook-form'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage'
-
-interface FormInput {
-  documentType: string
-  documentNumber: string
-  phone: string
-  placa: string
-  term: boolean
-}
+import { addUser, User } from '@/store/user/user'
+import { useDispatch } from 'react-redux'
+import { fetchPerson } from '@/api/person/person'
+import { useHistory } from 'react-router-dom'
 
 export default function HomeForm() {
+  const history = useHistory()
+  const dispatch = useDispatch()
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormInput>()
-  const onSubmit = (data: FormInput) => console.log(data)
+  } = useForm<User>()
+
+  const onSubmit = async (form: User) => {
+    const person = await fetchPerson()
+    const user: User = {
+      ...form,
+      name: person?.name.first,
+      gender: person?.gender,
+    }
+
+    dispatch(addUser(user))
+
+    history.push('/register')
+  }
 
   return (
     <form className="" onSubmit={handleSubmit(onSubmit)}>

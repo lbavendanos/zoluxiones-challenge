@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import axios from '@/utils/axios'
 
 export interface Response {
@@ -85,24 +84,13 @@ export interface Picture {
   thumbnail: string
 }
 
-export function usePerson() {
-  const [person, setPerson] = useState<Person>()
-  const [error, setError] = useState(null)
+export async function fetchPerson() {
+  try {
+    const url = '/api'
+    const { data } = await axios.get<Response>(url)
 
-  const fetchPerson = async () => {
-    try {
-      const url = '/api'
-      const { data } = await axios.get<Response>(url)
-
-      setPerson(data.results[0])
-    } catch (e) {
-      setError(e)
-    }
+    return data.results[0]
+  } catch (e) {
+    console.error(e)
   }
-
-  useEffect(() => {
-    fetchPerson()
-  }, [])
-
-  return { person, error, fetchPerson }
 }
