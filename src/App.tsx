@@ -19,7 +19,7 @@ export default function App() {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main className="main" data-testid="main">
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div></div>}>
             <Switch>
               {routes.map((route, i) => (
                 <RouteWithSubRoutes key={i} {...route} />

@@ -16,6 +16,7 @@ module.exports = {
       },
       'c-gray': {
         50: '#F7F8FC',
+        60: '#E4E8F7',
         100: '#C5CBE0',
         150: '#A3ABCC',
         200: '#676F8F',
