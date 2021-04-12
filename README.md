@@ -1,8 +1,8 @@
 # Zoluxiones Challenge
 
-This project was build with react, redux and tailwind
+This project was build with react, redux and tailwind.
 
-[Demo](https://zoluxiones-challenge.vercel.app).
+[Demo](https://zoluxiones-challenge.vercel.app)
 
 ### Mockup
 
